@@ -1,0 +1,4 @@
+const statusEl=document.getElementById('status'),el=document.getElementById('sun');function setStatus(s){if(statusEl)statusEl.textContent=s}
+async function j(u){const r=await fetch(u,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}
+function render(d){const s=d.sun||d;el.innerHTML=`<div>Sunrise: <strong>${s.sunrise||'-'}</strong></div><div>Sunset: <strong>${s.sunset||'-'}</strong></div>${s.day_length?`<div>Day length: ${s.day_length}</div>`:''}`}
+;(async()=>{try{const d=await j('../data/sun.json');render(d);setStatus('Data file')}catch{setStatus('Missing data/sun.json')}})();

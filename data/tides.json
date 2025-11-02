@@ -1,0 +1,25 @@
+{
+  "station": "Falmouth",
+  "tides": [
+    {
+      "time": "2025-11-02 03:11",
+      "type": "High",
+      "height": 4.8
+    },
+    {
+      "time": "2025-11-02 09:25",
+      "type": "Low",
+      "height": 1.2
+    },
+    {
+      "time": "2025-11-02 15:38",
+      "type": "High",
+      "height": 4.6
+    },
+    {
+      "time": "2025-11-02 21:50",
+      "type": "Low",
+      "height": 1.1
+    }
+  ]
+}

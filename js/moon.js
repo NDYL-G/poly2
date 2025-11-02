@@ -1,0 +1,4 @@
+const statusEl=document.getElementById('status'),el=document.getElementById('moon');function setStatus(s){if(statusEl)statusEl.textContent=s}
+async function j(u){const r=await fetch(u,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}
+function render(d){const m=d.moon||d;const phaseName=m.phase_name||m.phase||(m.phase_code!=null?m.phase_code:'');el.innerHTML=`<div>Phase: <strong>${phaseName||'-'}</strong></div>${m.moonrise?`<div>Moonrise: ${m.moonrise}</div>`:''}${m.moonset?`<div>Moonset: ${m.moonset}</div>`:''}`}
+;(async()=>{try{const d=await j('../data/moon.json');render(d);setStatus('Data file')}catch{setStatus('Missing data/moon.json')}})();

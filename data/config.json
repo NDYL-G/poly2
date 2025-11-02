@@ -1,0 +1,13 @@
+{
+  "timezone": "Europe/London",
+  "weather_location": {
+    "name": "Redruth",
+    "lat": 50.2349,
+    "lon": -5.226
+  },
+  "tides_location": {
+    "name": "Falmouth",
+    "lat": 50.153,
+    "lon": -5.0711
+  }
+}
