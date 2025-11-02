@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VVX411 Pages</title>
+  <link rel="icon" href="img/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <img src="img/logo.png" alt="Logo" class="logo">
+    <div class="title-right">
+      <h1>VVX411 Info Pages</h1>
+      <div class="date" id="now"></div>
+    </div>
+  </header>
+
+  <nav class="nav">
+    <ul>
+      <li><a href="html/news.html">News — Breaking/World/UK/Cornwall</a></li>
+      <li><a href="html/quotes.html">Inspirational Quotes</a></li>
+      <li><a href="html/onthisday.html">On This Day (UTC)</a></li>
+      <li><a href="html/image.html">Inspirational Image</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <p>Use the links above. These pages are designed to be rotated on your VVX411 every ~10 seconds without re-calling APIs, thanks to localStorage caching and deterministic “hour slots”.</p>
+  </main>
+
+  <script>
+  function tick(){
+    const el = document.getElementById('now');
+    if (el) el.textContent = new Date().toLocaleString();
+  }
+  tick(); setInterval(tick, 1000);
+  </script>
+</body>
+</html>

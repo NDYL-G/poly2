@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>On This Day (UTC)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="../img/favicon.ico">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    header { display:flex; justify-content:space-between; align-items:center; }
+    h1 { font-size:18px; margin: 4px 0; }
+    .group { margin-top:12px; }
+    .group h2 { font-size:16px; margin: 6px 0; }
+    ul { list-style:none; margin:0; padding:0; }
+    li { padding:6px 0; border-bottom:1px solid #eee; font-size:14px; }
+    #status { font-size:12px; opacity:0.7; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>On This Day</h1>
+    <div id="status">Loading…</div>
+  </header>
+
+  <section class="group">
+    <h2>Events</h2>
+    <ul id="events"></ul>
+  </section>
+
+  <section class="group">
+    <h2>Births</h2>
+    <ul id="births"></ul>
+  </section>
+
+  <section class="group">
+    <h2>Deaths</h2>
+    <ul id="deaths"></ul>
+  </section>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/onthisday.js"></script>
+</body>
+</html>
