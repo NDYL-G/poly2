@@ -1,18 +1,20 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1"><title>VVX411 Idle Rotator</title>
-<link rel="icon" href="img/favicon.ico"><link rel="stylesheet" href="css/style.css"></head>
-<body>
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>VVX411 Idle Rotator</title>
+<link rel="icon" href="img/favicon.ico">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/vvx.css">
+<style>iframe#stage{width:100%;height:200px;border:0}@media (min-width:341px){iframe#stage{height:75vh}}</style>
+</head><body>
 <div class="page">
   <div class="header">
-    <div class="header-left"><div class="logo"></div><div class="title">Idle Rotator</div></div>
+    <div class="header-left"><img class="logo" src="svg/logo.svg" alt="logo"><div class="title">Idle Rotator</div></div>
     <div class="header-right"><div class="date" id="hdr-date"></div><div class="sub">Auto-cycling pages</div></div>
   </div>
   <div class="sep"></div>
-  <div class="main" style="padding:0">
-    <iframe id="stage" title="Content" style="width:100%;height:75vh;border:0"></iframe>
-  </div>
+  <div class="main" style="padding:0"><iframe id="stage" title="Content"></iframe></div>
   <div class="footer"><span id="status">Loading…</span> · <span id="idx">0</span>/<span id="len">0</span> · <span id="src" class="muted"></span></div>
 </div>
-<script>document.getElementById('hdr-date').textContent = new Date().toLocaleDateString(undefined,{ day:'2-digit', month:'short', year:'numeric' });</script>
+<script>document.getElementById('hdr-date').textContent=new Date().toLocaleDateString(undefined,{day:'2-digit',month:'short',year:'numeric'});</script>
 <script src="js/config.js"></script><script src="js/rotator.js"></script>
 </body></html>

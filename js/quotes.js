@@ -1,16 +1,1 @@
-
-const META=document.getElementById('meta');const Q=document.getElementById('quote');const A=document.getElementById('author');
-function setMeta(t){ META.textContent=t; }
-async function j(u){ const r=await fetch(u,{cache:'no-store'}); if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); }
-function hourSlot(){ return Math.floor(Date.now()/3600000); }
-function renderHourly(pool){
-  if(!pool.length){ Q.textContent='No quotes.'; A.textContent=''; return; }
-  const idx = hourSlot() % pool.length;
-  const it = pool[idx];
-  Q.textContent = `“${(it.q||'').trim()}”`;
-  A.textContent = it.a ? `— ${it.a}` : '';
-}
-(async()=>{
-  try{ const arr = await j('../data/quotes.json'); renderHourly(arr); setMeta('Data file'); } catch { setMeta('Missing data/quotes.json'); }
-  const now=new Date(); document.getElementById('updated').textContent='Updated: '+now.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
-})();
+function hourSlot(){return Math.floor(Date.now()/3600000)}(async()=>{const meta=document.getElementById('meta');try{const arr=await (await fetch('../data/quotes.json',{cache:'no-store'})).json();if(Array.isArray(arr)&&arr.length){const it=arr[hourSlot()%arr.length];document.getElementById('quote').textContent='“'+(it.q||'')+'”';document.getElementById('author').textContent=it.a?('— '+it.a):'';meta.textContent='Data file'}else meta.textContent='No quotes'}catch{meta.textContent='Missing data/quotes.json'}const now=new Date();document.getElementById('updated').textContent='Updated: '+now.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})})();

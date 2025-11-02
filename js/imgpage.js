@@ -1,10 +1,1 @@
-
-(async()=>{
-  const meta = document.getElementById('updated');
-  const img = document.getElementById('img');
-  try{
-    img.src = '../data/image.jpg';
-    img.onerror = ()=>{ meta.textContent='Updated: image not found'; };
-    img.onload = ()=>{ const now=new Date(); meta.textContent='Updated: '+now.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}); };
-  }catch{ meta.textContent='Updated: error'; }
-})();
+(async()=>{const meta=document.getElementById('updated');const img=document.getElementById('img');try{img.src='../data/image.jpg';img.onerror=()=>{meta.textContent='Updated: image not found'};img.onload=()=>{const now=new Date();meta.textContent='Updated: '+now.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}}catch{meta.textContent='Updated: error'}})();

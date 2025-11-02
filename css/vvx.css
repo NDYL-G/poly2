@@ -1,0 +1,18 @@
+
+.vvx-only{display:block}.not-vvx{display:none}
+@media (min-width:341px){ .vvx-only{display:none} .not-vvx{display:block} }
+
+@media (max-width:340px){
+  .page{border-width:1px}
+  .header{padding:4px 6px}
+  .title{font-size:16px}
+  .header-right .date{font-size:12px}
+  .main{padding:8px;gap:8px}
+  .card{padding:8px;min-width:0}
+  .h1{font-size:22px}
+  .h2{font-size:14px;margin-bottom:4px}
+  .p,.kv .val,.kv .key{font-size:12px}
+  .footer{padding:6px;font-size:11px}
+  .logo{width:20px;height:20px}
+  #moonIcon{width:96px;height:96px}
+}
