@@ -1,1 +1,45 @@
-(function(){const s=document.getElementById('status'),c=document.getElementById('clock'),iEl=document.getElementById('idx'),lEl=document.getElementById('len'),src=document.getElementById('src'),frame=document.getElementById('stage');const LSP='vvx_playlist_v1',LSS='vvx_settings_v1';const dft={dwellSeconds:10,playlistUrl:'data/playlist.json'};function tick(){c.textContent=new Date().toLocaleString()}setInterval(tick,1000);tick();function setS(t){s.textContent=t}async function j(u){const r=await fetch(u,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}function gS(){try{const r=localStorage.getItem(LSS);if(r)return JSON.parse(r)}catch{}return{}}function sv(pl){try{localStorage.setItem(LSP,JSON.stringify(pl))}catch{}}async function lp(){try{const r=localStorage.getItem(LSP);if(r)return JSON.parse(r)}catch{}const st=Object.assign({},dft,gS());const data=await j(st.playlistUrl);sv(data);return data}async function run(){setS('Loading playlist…');let pl=await lp();if(!Array.isArray(pl)||!pl.length){setS('Empty playlist');return}lEl.textContent=String(pl.length);let k=0;const dwell=Math.max(3,Number(gS().dwellSeconds)||10)*1000;async function nxt(){const it=pl[k%pl.length];k++;iEl.textContent=String(((k-1)%pl.length)+1);const url=it.url||it;src.textContent=url;setS('');try{frame.src=url}catch(e){location.href=url;return}setTimeout(nxt,dwell)}nxt()}run().catch(e=>setS('Error: '+(e.message||e)))} )();
+
+(function(){
+  const statusEl = document.getElementById('status');
+  const idxEl = document.getElementById('idx');
+  const lenEl = document.getElementById('len');
+  const srcEl = document.getElementById('src');
+  const stage = document.getElementById('stage');
+
+  const LS_PLAYLIST = 'vvx_playlist_v1';
+  const LS_SETTINGS = 'vvx_settings_v1';
+  const defaults = { dwellSeconds: 10, playlistUrl: 'data/playlist.json' };
+
+  async function fetchJSON(url){
+    const r = await fetch(url, { cache: 'no-store' });
+    if (!r.ok) throw new Error('HTTP '+r.status);
+    return r.json();
+  }
+  function getSettings(){ try{const raw=localStorage.getItem(LS_SETTINGS); if(raw) return JSON.parse(raw);}catch{} return {}; }
+  function savePlaylist(pl){ try{ localStorage.setItem(LS_PLAYLIST, JSON.stringify(pl)); }catch{} }
+  async function loadPlaylist(){
+    try{ const raw=localStorage.getItem(LS_PLAYLIST); if(raw) return JSON.parse(raw); }catch{}
+    const data = await fetchJSON(defaults.playlistUrl);
+    savePlaylist(data); return data;
+  }
+
+  (async ()=>{
+    statusEl.textContent = 'Loading playlist…';
+    const playlist = await loadPlaylist();
+    if(!Array.isArray(playlist)||!playlist.length){ statusEl.textContent='Empty playlist'; return; }
+    lenEl.textContent = String(playlist.length);
+    let i=0;
+    const dwell = Math.max(3, Number(getSettings().dwellSeconds)||10) * 1000;
+
+    async function showNext(){
+      const item = playlist[i % playlist.length]; i++;
+      idxEl.textContent = String(((i-1)%playlist.length)+1);
+      const url = item.url || item;
+      srcEl.textContent = url;
+      statusEl.textContent = '';
+      try { stage.src = url; } catch(e){ location.href = url; return; }
+      setTimeout(showNext, dwell);
+    }
+    showNext();
+  })().catch(e => statusEl.textContent = 'Error: '+(e.message||e));
+})();

@@ -1,1 +1,1 @@
-const WORKER_BASE=""; const RSS_PROXY_BASE="";
+const WORKER_BASE=''; const RSS_PROXY_BASE='';

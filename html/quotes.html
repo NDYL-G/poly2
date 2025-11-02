@@ -1,1 +1,27 @@
-<!DOCTYPE html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Quotes</title><link rel='stylesheet' href='../css/style.css'></head><body><div class='row'>Quotes page (reads data/quotes.json)</div></body></html>
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inspirational Quote</title>
+<link rel="icon" href="../img/favicon.ico"><link rel="stylesheet" href="../css/style.css">
+</head><body>
+<div class="page">
+  <div class="header">
+    <div class="header-left"><img class="logo" src="../svg/logo.svg" alt="logo" /><div class="title">Inspirational Quote</div></div>
+    <div class="header-right">
+      <div class="date" id="hdr-date"></div>
+      <div class="sub"></div>
+    </div>
+  </div>
+  <div class="sep"></div>
+  <div class="main">
+  <div class="card" style="flex:1 1 520px">
+    <div class="p muted" id="meta">Loading…</div>
+    <div class="h1" id="quote">—</div>
+    <div class="p" id="author"></div>
+  </div>
+<script src="../js/config.js"></script>
+<script src="../js/quotes.js"></script>
+</div>
+  <div class="footer" id="updated">Updated: --:--</div>
+</div>
+<script>document.getElementById('hdr-date').textContent = new Date().toLocaleDateString(undefined, { day:'2-digit', month:'short', year:'numeric' });</script>
+</body></html>

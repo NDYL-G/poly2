@@ -1,1 +1,25 @@
-<!DOCTYPE html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Image</title><link rel='stylesheet' href='../css/style.css'></head><body><div class='row'>Image page (prefers data/image.jpg)</div></body></html>
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inspirational Image</title>
+<link rel="icon" href="../img/favicon.ico"><link rel="stylesheet" href="../css/style.css">
+</head><body>
+<div class="page">
+  <div class="header">
+    <div class="header-left"><img class="logo" src="../svg/logo.svg" alt="logo" /><div class="title">Inspirational Image</div></div>
+    <div class="header-right">
+      <div class="date" id="hdr-date"></div>
+      <div class="sub"></div>
+    </div>
+  </div>
+  <div class="sep"></div>
+  <div class="main">
+  <div class="card" style="flex:1 1 520px; display:flex;align-items:center;justify-content:center;min-height:300px">
+    <img id="img" alt="Inspirational" style="max-width:100%;max-height:60vh;border-radius:12px;border:1px solid var(--border)"/>
+  </div>
+<script src="../js/config.js"></script>
+<script src="../js/imgpage.js"></script>
+</div>
+  <div class="footer" id="updated">Updated: --:--</div>
+</div>
+<script>document.getElementById('hdr-date').textContent = new Date().toLocaleDateString(undefined, { day:'2-digit', month:'short', year:'numeric' });</script>
+</body></html>

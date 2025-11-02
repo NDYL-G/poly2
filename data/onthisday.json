@@ -1,0 +1,20 @@
+{
+  "events": [
+    {
+      "year": 1953,
+      "text": "Event example"
+    }
+  ],
+  "births": [
+    {
+      "year": 1970,
+      "text": "Birth example"
+    }
+  ],
+  "deaths": [
+    {
+      "year": 1980,
+      "text": "Death example"
+    }
+  ]
+}

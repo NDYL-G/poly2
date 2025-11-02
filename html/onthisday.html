@@ -1,1 +1,31 @@
-<!DOCTYPE html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>On This Day</title><link rel='stylesheet' href='../css/style.css'></head><body><div class='row'>On This Day page (reads data/onthisday.json)</div></body></html>
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>On This Day (UTC)</title>
+<link rel="icon" href="../img/favicon.ico"><link rel="stylesheet" href="../css/style.css">
+</head><body>
+<div class="page">
+  <div class="header">
+    <div class="header-left"><img class="logo" src="../svg/logo.svg" alt="logo" /><div class="title">On This Day (UTC)</div></div>
+    <div class="header-right">
+      <div class="date" id="hdr-date"></div>
+      <div class="sub"></div>
+    </div>
+  </div>
+  <div class="sep"></div>
+  <div class="main">
+  <div class="card" style="flex:1 1 420px">
+    <div class="h2">Events</div><ul class="list" id="events"></ul>
+  </div>
+  <div class="card" style="flex:1 1 420px">
+    <div class="h2">Births</div><ul class="list" id="births"></ul>
+  </div>
+  <div class="card" style="flex:1 1 420px">
+    <div class="h2">Deaths</div><ul class="list" id="deaths"></ul>
+  </div>
+<script src="../js/config.js"></script>
+<script src="../js/onthisday.js"></script>
+</div>
+  <div class="footer" id="updated">Updated: --:--</div>
+</div>
+<script>document.getElementById('hdr-date').textContent = new Date().toLocaleDateString(undefined, { day:'2-digit', month:'short', year:'numeric' });</script>
+</body></html>

@@ -6,11 +6,12 @@
     "tz": "Europe/London"
   },
   "current": {
-    "time": "2025-11-02T10:00:00Z",
-    "temperature": 12.3,
-    "wind": 3.0,
-    "humidity": 0.76,
-    "summary": "Cloudy"
+    "time": "2025-11-02T18:23:00Z",
+    "temperature": 11,
+    "feels_like": 11,
+    "wind": 6.26,
+    "humidity": 0.72,
+    "wind_dir": 256
   },
   "daily": {
     "time": [

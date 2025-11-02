@@ -1,4 +1,27 @@
-<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Moon</title><link rel='icon' href='../img/favicon.ico'><link rel='stylesheet' href='../css/style.css'></head><body>
-<header class='row'><h1 style='font-size:18px;margin:0'>Moon</h1><div id='status' class='muted'>Loading…</div></header>
-<main class='row'><div id='moon'></div></main>
-<script src='../js/config.js'></script><script src='../js/moon.js'></script></body></html>
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moon</title>
+<link rel="icon" href="../img/favicon.ico"><link rel="stylesheet" href="../css/style.css">
+</head><body>
+<div class="page">
+  <div class="header">
+    <div class="header-left"><img class="logo" src="../svg/logo.svg" alt="logo" /><div class="title">Moon</div></div>
+    <div class="header-right">
+      <div class="date" id="hdr-date"></div>
+      <div class="sub"></div>
+    </div>
+  </div>
+  <div class="sep"></div>
+  <div class="main">
+  <div class="card" style="flex:1 1 360px">
+    <div class="kv"><div class="key">Phase</div><div class="val"><span id="phase" class="value">--</span></div></div><div class="card" style="flex:0 0 160px;display:flex;align-items:center;justify-content:center"><img id="moonIcon" src="../svg/moon-full.svg" style="width:120px;height:120px"/></div>
+    <div class="kv"><div class="key">Moonrise</div><div class="val"><span id="moonrise" class="value">--</span></div></div>
+    <div class="kv"><div class="key">Moonset</div><div class="val"><span id="moonset" class="value">--</span></div></div>
+  </div>
+<script src="../js/config.js"></script>
+<script src="../js/moon.js"></script>
+</div>
+  <div class="footer" id="updated">Updated: --:--</div>
+</div>
+<script>document.getElementById('hdr-date').textContent = new Date().toLocaleDateString(undefined, { day:'2-digit', month:'short', year:'numeric' });</script>
+</body></html>

@@ -1,4 +1,40 @@
-<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Weather</title><link rel='icon' href='../img/favicon.ico'><link rel='stylesheet' href='../css/style.css'></head><body>
-<header class='row'><h1 style='font-size:18px;margin:0'>Weather — <span id='loc'>Redruth</span></h1><div id='status' class='muted'>Loading…</div></header>
-<main class='row'><div id='current'></div></main><section class='row'><div id='forecast'></div></section>
-<script src='../js/config.js'></script><script src='../js/weather.js'></script></body></html>
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Weather</title>
+<link rel="icon" href="../img/favicon.ico"><link rel="stylesheet" href="../css/style.css">
+</head><body>
+<div class="page">
+  <div class="header">
+    <div class="header-left"><img class="logo" src="../svg/logo.svg" alt="logo" /><div class="title">Weather</div></div>
+    <div class="header-right">
+      <div class="date" id="hdr-date"></div>
+      <div class="sub"></div>
+    </div>
+  </div>
+  <div class="sep"></div>
+  <div class="main">
+  <div class="card" style="flex:1 1 320px">
+    <div class="h1"><span id="tC">--</span> <span class="muted">/</span> <span id="tF" class="muted">--</span></div>
+    <div class="p">Wind: <span id="windMph" class="value">--</span> mph / <span id="windKmh" class="value">--</span> km/h</div>
+    <div class="kv"><div class="key">Feels</div><div class="val"><span id="feelsC" class="value">--</span>°C</div></div>
+    <div class="kv"><div class="key">Humidity</div><div class="val"><span id="hum" class="value">--</span>%</div></div>
+  </div>
+  <div class="card" style="flex:0 0 220px; display:flex; flex-direction:column; align-items:center; justify-content:center">
+    <object id="thermo" type="image/svg+xml" data="../svg/thermometer.svg" style="width:60px;height:180px"></object>
+  </div>
+  <div class="card" style="flex:0 0 240px; display:flex; flex-direction:column; align-items:center; justify-content:center">
+    <div class="muted" style="margin-bottom:6px">Dir</div>
+    <object id="wind" type="image/svg+xml" data="../svg/wind.svg" style="width:160px;height:160px"></object>
+    <div class="p" style="text-align:center;margin-top:8px"><span id="windDeg" class="value">--</span>°</div>
+  </div>
+  <div class="card" style="flex:1 1 320px">
+    <div class="h2">Next days</div>
+    <div id="forecast"></div>
+  </div>
+<script src="../js/config.js"></script>
+<script src="../js/weather.js"></script>
+</div>
+  <div class="footer" id="updated">Updated: --:--</div>
+</div>
+<script>document.getElementById('hdr-date').textContent = new Date().toLocaleDateString(undefined, { day:'2-digit', month:'short', year:'numeric' });</script>
+</body></html>
